@@ -18,17 +18,6 @@ class VCard:
         self.tel_type_num = []
         self.email = ''
         self.company = ''
-
-    @property
-    def tel_type_num(self):
-        return self.tel_type_num
-    
-    @tel_type_num.setter
-    def tel_type_num(self, type_num_tuple):
-        if type(type_num_tuple) == tuple:
-            self.tel_type_num.append(type_num_tuple)
-        else:
-            raise Exception(f'Just tuples are accepted, get {type(type_num_tuple)}')
     
     def create_vcard(self):
         """

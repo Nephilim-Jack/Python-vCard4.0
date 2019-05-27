@@ -1,5 +1,6 @@
 # Author Matheus "Nephilim" Mendes
 
+
 class VCard:
     
     def __init__(self, path_name):
@@ -17,6 +18,10 @@ class VCard:
         self.tel_type_num = []
         self.email = ''
         self.company = ''
+
+    @property
+    def tel_type_num(self):
+        return self.tel_type_num
     
     @tel_type_num.setter
     def tel_type_num(self, type_num_tuple):
@@ -39,7 +44,7 @@ class VCard:
         
         for type_name, number in self.tel_type_num:
             if type(type_name) == str:
-                if type_name.lower()) == 'work' or type_name.lower()) == 'home':
+                if type_name.lower() == 'work' or type_name.lower() == 'home':
                     vcard_text += f'TEL;TYPE={type_name.lower()},voice;VALUE=uri:tel:{str(number)}\n\n'
                 else:
                     vcard_text += f'TEL;TYPE=home,voice;VALUE=uri:tel:{str(number)}\n\n'
@@ -50,4 +55,4 @@ class VCard:
         vcard_text += 'END:VCARD'
         
         with open(self.path_name, 'w') as v_file:
-            vfile.write(vcard_text)
+            v_file.write(vcard_text)

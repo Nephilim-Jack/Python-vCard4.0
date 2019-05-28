@@ -1,5 +1,5 @@
 # Author Matheus "Nephilim" Mendes
-
+# Copyright Nephi.IT 2019
 
 class VCard:
     

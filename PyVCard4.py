@@ -1,5 +1,9 @@
 # Author Matheus "Nephilim" Mendes
-# Copyright Nephi.IT 2019
+# Apache PyVCard4
+# Copyright 2019 The Apache Software Foundation
+# 
+# This product includes software developed at
+# The Apache Software Foundation (http://www.apache.org/).
 
 class VCard:
     

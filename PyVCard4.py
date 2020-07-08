@@ -21,13 +21,17 @@ class VCard:
         """
         Create the vCard file in your selected path
         """
-        vcard_text = 'BEGIN:VCARD\nVERSION:4.0\n\n'
-        for name, number in self.name_num:
+        vcard_text = ''
+        for i, data in enumerate(self.name_num):
+            if i == 1:
+                vcard_text += 'BEGIN:VCARD\nVERSION:4.0\n\n'
+            else:
+                vcard_text += '\nBEGIN:VCARD\nVERSION:4.0\n\n'
 
-            vcard_text += f'FN:{name}\n'
+            vcard_text += f'FN:{data[0]}\n'
             vcard_text += f'ORG:{self.company}\n'
-            vcard_text += f'TEL;TYPE=work,voice;VALUE=uri:tel:{str(number)}\n\n'
+            vcard_text += f'TEL;TYPE=work:{str(data[1])}\n\n'
 
-        vcard_text += 'END:VCARD'
+            vcard_text += 'END:VCARD'
         with open(self.path_name, 'w') as v_file:
             v_file.write(vcard_text)

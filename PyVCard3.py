@@ -23,15 +23,14 @@ class VCard:
         """
         vcard_text = ''
         for i, data in enumerate(self.name_num):
-            if i == 1:
-                vcard_text += 'BEGIN:VCARD\nVERSION:4.0\n\n'
+            if i == 0:
+                vcard_text += 'BEGIN:VCARD\nVERSION:3.0\n'
             else:
-                vcard_text += '\nBEGIN:VCARD\nVERSION:4.0\n\n'
+                vcard_text += '\nBEGIN:VCARD\nVERSION:3.0\n'
 
             vcard_text += f'FN:{data[0]}\n'
-            vcard_text += f'ORG:{self.company}\n'
-            vcard_text += f'TEL;TYPE=work:{str(data[1])}\n\n'
+            vcard_text += f'TEL;TYPE=CELL:{str(data[1])}\n'
 
             vcard_text += 'END:VCARD'
-        with open(self.path_name, 'w') as v_file:
+        with open(self.path_name, 'w', encoding='utf-8') as v_file:
             v_file.write(vcard_text)

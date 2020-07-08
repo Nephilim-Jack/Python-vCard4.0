@@ -7,8 +7,7 @@ with open('Nomes.txt', 'r') as names:
 with open('Números.txt', 'r') as numbers:
     numbers = [line.replace('\n', '') for line in numbers.readlines()]
 
-vc = PyVCard4.VCard(os.getcwd())
-vc.company = '{company_here}'
+vc = PyVCard3.VCard(os.getcwd())
 
 vc.name_num = tuple(((name, num) for name, num in zip(names, numbers)))
 
